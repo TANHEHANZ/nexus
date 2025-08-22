@@ -23,9 +23,25 @@ cd nexus-setup
 docker-compose -f docker-compose-nexus.yml up -d
 ```
 
+> Al crear el repositorio Docker dentro de Nexus, asegúrate de configurar el **HTTP** con el mismo puerto que definiste en `docker-compose-nexus.yml`.
+
 ---
 
-## 3. Consultar password por defecto
+## 3. Configuración de Docker
+
+Para que tu máquina pueda comunicarse con el Nexus local, edita el archivo `daemon.json` de Docker (normalmente en `/etc/docker/daemon.json` o `C:\ProgramData\docker\config\daemon.json` en Windows) e incluye el host que estás usando para Nexus:
+
+```json
+{
+  "insecure-registries": ["127.0.0.1:8082"]
+}
+```
+
+Luego reinicia Docker para aplicar los cambios.
+
+---
+
+## 4. Consultar password por defecto
 
 Para obtener la contraseña inicial del usuario `admin`:
 
@@ -37,7 +53,7 @@ docker exec -it <nombre-del-contenedor> cat /nexus-data/admin.password
 
 ---
 
-## 4. Acceder a la interfaz web
+## 5. Acceder a la interfaz web
 
 Visitar:
 
@@ -49,7 +65,7 @@ Cambiar la contraseña del usuario `admin` según se indique al iniciar.
 
 ---
 
-## 5. Uso de Nexus con Docker
+## 6. Uso de Nexus con Docker
 
 Se recomienda leer los documentos específicos para cada operación:
 
