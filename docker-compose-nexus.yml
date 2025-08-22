@@ -1,0 +1,15 @@
+version: '3'
+services:
+  nexus:
+    container_name: nexus3
+    image: sonatype/nexus3
+    ports:
+      - "8081:8081"  
+      - "8082:8082" 
+    environment:
+      - INSTALL4J_ADD_VM_PARAMS=-Dnexus.connector.http.enabled=true -Dnexus.connector.http.listenAddress=0.0.0.0
+    volumes:
+      - nexus-data:/nexus-data
+
+volumes:
+  nexus-data:
