@@ -12,7 +12,7 @@ Este repositorio explica cómo instalar y configurar un **Nexus Repository Manag
 
 ```bash
 git clone https://github.com/TANHEHANZ/nexus.git
-cd nexus-setup
+cd nexus
 ```
 
 ---
